@@ -42,50 +42,107 @@
 @media print {
   @page {
     size: 210mm 297mm;
-    margin: 0;
+    margin: 0mm;
   }
 
-  html, body {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
+  html,
+  body {
     width: 210mm !important;
+    min-width: 210mm !important;
+    max-width: 210mm !important;
+    height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
     background: #ffffff !important;
-    color: #0f172a !important;
+    overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
+  #root,
+  main {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
   .no-print {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
   }
 
   .print-only {
     display: block !important;
   }
 
-  .page-break {
-    page-break-before: always !important;
-    break-before: page !important;
-    height: 0 !important;
+  #report-print-root {
+    display: block !important;
+    width: 210mm !important;
     margin: 0 !important;
     padding: 0 !important;
-    border: none !important;
+    overflow: visible !important;
   }
 
-  .avoid-break {
+  .print-page-wrapper,
+  .print-page-scaled {
+    display: contents !important;
+  }
+
+  /* 제1쪽 엄격 서식: A4 295mm로 고정하여 빈 페이지 발생 원천 차단 */
+  #report-page-1 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 210mm !important;
+    min-width: 210mm !important;
+    max-width: 210mm !important;
+    height: 295mm !important;
+    max-height: 295mm !important;
+    margin: 0 !important;
+    padding: 12mm 12mm 8mm 12mm !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    page-break-before: auto !important;
+    break-before: auto !important;
+    page-break-after: always !important;
+    break-after: page !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  .print-page-wrapper {
-    height: auto !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .print-page-scaled {
-    transform: none !important;
+  /* 제2쪽 엄격 서식 */
+  #report-page-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
     width: 210mm !important;
+    min-width: 210mm !important;
+    max-width: 210mm !important;
+    height: 295mm !important;
+    max-height: 295mm !important;
+    margin: 0 !important;
+    padding: 12mm 12mm 8mm 12mm !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    page-break-before: always !important;
+    break-before: page !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 }
