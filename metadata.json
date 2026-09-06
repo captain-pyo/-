@@ -1,0 +1,6 @@
+{
+  "name": "공무원 소득 크레바스 진단·상담 도우미",
+  "description": "퇴직과 연금 사이의 소득 공백을 점검하고, 앞으로 준비할 가장 중요한 과제를 찾아보는 공무원 퇴직설계 상담 지원 도구",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
