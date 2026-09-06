@@ -101,7 +101,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070D18] flex flex-col font-sans text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#070D18] flex flex-col font-sans text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 print:min-h-0 print:bg-white print:text-slate-900 print:block">
       {/* Top Header with 5-step progress indicator */}
       <Header
         currentStep={currentStep}
@@ -123,7 +123,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1">
+      <main className="flex-1 print:flex-none print:w-full print:m-0 print:p-0">
         {errorNotice && (
           <div className="no-print max-w-4xl mx-auto mt-4 px-4">
             <div className="bg-amber-950/40 border border-amber-500/40 text-amber-200 px-4 py-3 rounded-xl text-xs flex items-center justify-between shadow-lg backdrop-blur-md">
